@@ -5,6 +5,7 @@ import { Request, Response } from "express";
 export class AuthMiddleware {
   checkAuthorization(req: Request, res: Response, next: NextFunction) {
     const { authorization } = req.headers;
+
     if (!authorization) {
       return res.status(StatusCodes.UNAUTHORIZED).send("Unauthorized");
     }

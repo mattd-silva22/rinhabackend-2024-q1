@@ -1,6 +1,6 @@
 CREATE TABLE clients (
     id INT PRIMARY KEY,
-    limit INT,
+    `limit` INT,
     balance INT
 );
 

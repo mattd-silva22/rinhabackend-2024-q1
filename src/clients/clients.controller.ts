@@ -9,6 +9,7 @@ export class ClientsController {
   public async getStatement(req: Request, res: Response): Promise<any> {
     const getStatementService = new GetStatementService();
     const id = req.params.id;
+    console.log(req.params);
 
     if (!id) {
       return res
@@ -17,8 +18,8 @@ export class ClientsController {
     } else {
       return getStatementService
         .execute(id)
-        .then((user) => {
-          res.status(StatusCodes.OK).send(user);
+        .then((data) => {
+          res.status(StatusCodes.OK).send(data);
         })
         .catch((error) => {
           res
