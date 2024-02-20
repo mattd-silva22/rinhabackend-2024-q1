@@ -9,22 +9,23 @@ export class ClientsController {
   public async getStatement(req: Request, res: Response): Promise<any> {
     const getStatementService = new GetStatementService();
     const id = req.params.id;
-    console.log(req.params);
 
     if (!id) {
       return res
         .status(StatusCodes.BAD_REQUEST)
-        .send(new GenericError(400, "Id is required", "IdIsRequired"));
+        .send(new GenericError("Id is required", "IdIsRequired"));
     } else {
       return getStatementService
         .execute(id)
         .then((data) => {
+          console.log(data);
           res.status(StatusCodes.OK).send(data);
         })
         .catch((error) => {
+          console.log(error);
           res
             .status(StatusCodes.NOT_FOUND)
-            .send(new GenericError(404, error, "UserNotFound"));
+            .send(new GenericError(error, "UserNotFound"));
         });
     }
   }

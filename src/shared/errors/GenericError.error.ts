@@ -1,11 +1,8 @@
-export class GenericError extends Error {
-  public status: number;
+export class GenericError {
   public message: string;
   public type: string;
 
-  constructor(status: number, message: string, type: string) {
-    super(message);
-    this.status = status;
+  constructor(message: string, type: string) {
     this.message = message;
     this.type = type;
   }

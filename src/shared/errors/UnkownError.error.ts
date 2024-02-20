@@ -1,6 +1,8 @@
-class UnknownError extends Error {
+export class UnknownError {
+  public name: string;
+  public message: string;
   constructor(message: string) {
-    super(message);
     this.name = "UnknownError";
+    this.message = message;
   }
 }
